@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://blv8mqycf48i"]
+
+[ext_resource type="PackedScene" uid="uid://br1aacrww56kn" path="res://scenes/world.tscn" id="1_6m570"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_fy64w"]
+[ext_resource type="PackedScene" uid="uid://25wbsa8ols3c" path="res://scenes/health_panel.tscn" id="3_hau1k"]
+[ext_resource type="Script" path="res://scenes/health_panel.gd" id="4_2dvvh"]
+[ext_resource type="PackedScene" uid="uid://cgp2aix561rg2" path="res://scenes/player.tscn" id="5_i1ehy"]
+[ext_resource type="Script" path="res://scenes/text_hp.gd" id="5_xa1ca"]
+
+[node name="game" type="Node"]
+script = ExtResource("1_fy64w")
+
+[node name="Player" parent="." instance=ExtResource("5_i1ehy")]
+position = Vector2(119, 88)
+
+[node name="world" parent="." instance=ExtResource("1_6m570")]
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="Health_panel" parent="ui" instance=ExtResource("3_hau1k")]
+script = ExtResource("4_2dvvh")
+
+[node name="text_hp2" type="Label" parent="ui/Health_panel"]
+layout_mode = 0
+offset_left = 17.0
+offset_right = 41.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 10
+script = ExtResource("5_xa1ca")

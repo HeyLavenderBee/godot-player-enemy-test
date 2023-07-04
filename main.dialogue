@@ -1,0 +1,39 @@
+~ start
+
+if global.give_mouse_cheese == false:
+	Mouse: [[Hello...?|Hi..]]
+	- Heyy
+		Mouse: Do you have something to tell me?
+		- Actually, I do
+			Mouse: Oh, what is it?
+			- I found this lost cheese behind, is it yours?
+				if global.found_mouse_cheese == true:
+					Mouse: Oh, yeah, it is mine!!
+					Mouse: Thank you so much for finding it!
+					set global.give_mouse_cheese = true
+				else:
+					Mouse: Oh, it's not mine..
+					Mouse: But thanks for letting me know 
+					=> END
+		- Nope, bye => END
+	- Who are you?
+		Mouse: I'm a little blue mouse, which try to chase players, because I have no friends...
+		- Ahh, that's so sad :(
+			Mouse: Yeah, I know...
+			- Wanna be friends?
+				Mouse: Oh, really??? I would love to!
+				Mouse: And because of that, I won't attack you anymore :)
+			- I gotta do things now, bye!
+				Mouse: Bye..
+		- I don't care dude, bye
+			Mouse: Oh, that was rude, I guess we can't ever be friends 
+	- See ya => END
+else:
+	Mouse: [[Heyy|Hii :)]] how are ya?
+	- I'm fine, thx for asking
+		Mouse: Great to hear that
+		Mouse: Btw, thanks for finding my cheese!
+	- Normal, see ya => END
+	
+
+=> END
