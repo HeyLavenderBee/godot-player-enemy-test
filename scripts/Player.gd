@@ -3,7 +3,7 @@ extends CharacterBody2D #player script
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 
-@export var health = 200:
+@export var health = 100:
 	set(value):
 		health = value
 	# A signal can carry information too, such as health
@@ -181,19 +181,19 @@ func update_health():
 	var healthbar = $healthbar
 	healthbar.value = health
 	
-	if health >= 200:
+	if health >= 100:
 		healthbar.visible = false
 	else:
 		healthbar.visible = true
 
 func _on_regen_time_timeout(): #this thing of regen health works fine
-	if health < 200:
+	if health < 100:
 		if global.player_current_attack == false:
 			health += 20
 			print("Health regenerated!", health)
-		if health > 200:
-			health = 200
-		if health == 200:
+		if health > 100:
+			health = 100
+		if health == 100:
 			print("Full health!")
 	if health <= 0:
 		health = 0
